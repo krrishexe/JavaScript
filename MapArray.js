@@ -1,7 +1,7 @@
 // Higher order Functions 
-// map - loops and returns an array
-// filter 
-// reduce
+// map --> loops and returns an array
+// filter --> loops and returns an array with matching condition
+// reduce -->
 
 
 
