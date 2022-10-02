@@ -21,3 +21,15 @@ console.log(z);
 // const nums =[10,20,30,47,50,60,70]
 // z= nums.filter(num=> num>30 && num%5==0)
 // console.log(z);
+
+
+const actors= [
+    {name :'Krish' ,netWorth:5},
+    {name : 'ankit',netWorth:10},
+    {name : 'gaurav',netWorth:7}
+]
+z = actors.filter(actor=>actor.netWorth >6);
+console.log(z);
+
+let names = z.map(actor=>actor.name).join(" , ");
+console.log(names);
