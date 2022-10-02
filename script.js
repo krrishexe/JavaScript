@@ -33,12 +33,29 @@ const squares = document.querySelectorAll('.colorSquare');
 // console.log(squares[4].value); 
 
 // what if there are more than 3 elements ??  we have to use loop here
-// forEach loop
+// forEach loop 
 
+
+const timesClicked ={'red' : 0,'green':0,'yellow':0,'blue':0}
 squares.forEach(square => {
-    square.onclick =()=> console.log(square.value);
-    
-    // console.log(square.value)
+    // square.onclick =()=> console.log(square.value) --> it will print the color of the square
+    square.onclick =()=> {
+        timesClicked[square.value] += 1;
+        square.innerText = timesClicked[square.value]; // --> and it will print the number of times the button is clicked.
+    }
 })
+
+
+function clearScores(){
+    timesClicked.red = 0
+    timesClicked.green = 0
+    timesClicked.yellow = 0
+    // timesClicked[squares.value] = 0
+    squares.forEach(square=>{
+        square.innerText = 0;
+    });
+}
+const clearTheGame = document.getElementById('zero-return');
+clearTheGame.onclick = () => clearScores();
 
 
