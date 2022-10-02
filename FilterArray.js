@@ -30,6 +30,12 @@ const actors= [
 ]
 z = actors.filter(actor=>actor.netWorth >6);
 console.log(z);
-
 let names = z.map(actor=>actor.name).join(" , ");
 console.log(names);
+
+
+// const r = actors.reduce((a,b)=>a+b.netWorth ,0)
+// console.log(r);
+
+const r = actors.reduce((prev,actor)=>prev+actor.netWorth ,0)
+console.log(r);
