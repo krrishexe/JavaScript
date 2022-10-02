@@ -1,7 +1,9 @@
 // Higher order Functions 
+
+// it always takes in a function as an argument.
 // map --> loops and returns an array
 // filter --> loops and returns an array with matching condition
-// reduce -->
+// reduce --> (SUM : think of reduce) 
 
 
 
