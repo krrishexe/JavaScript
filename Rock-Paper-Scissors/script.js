@@ -2,6 +2,7 @@
 // getComputerChoice() 👉 'Rock'
 // getComputerChoice() 👉 'Scissors'
 
+const Player = document.getElementById('player-score');
 
 
 
@@ -64,13 +65,17 @@ function getResult(playerChoice, computerChoice) {
     }
     return score;
 }
-
 console.log(getResult(getplayerChoice(arr), getComputerChoice(arr)));
 
 // ** showResult updates the DOM to `You Win!` or `You Lose!` or `It's a Draw!` based on the score. Also shows Player Choice vs. Computer Choice**
 
 function showResult(score, playerChoice, computerChoice) {
+
+    if(score = -1){
+
+    }
     // Hint: on a score of -1
     // You should do result.innerText = 'You Lose!'
     // Don't forget to grab the div with the 'result' id!
 }
+console.log(showResult(score,getplayerChoice(arr),getComputerChoice(arr)));
