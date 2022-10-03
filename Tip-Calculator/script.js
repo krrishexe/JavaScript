@@ -24,11 +24,12 @@ const calculateBill = () => {
     
     // update the perPersonTotal on DOM & show it to user
     perPersonTotalDiv.innerText = `$${perPersonTotal.toFixed(2)}`;      
-
     // .toFixed() function binds the given number to 2 decimal places
-    
-    
+
 }
+
+
+
 // ** Splits the bill between more people **
 const increasePeople = () => {
 
@@ -39,6 +40,18 @@ const increasePeople = () => {
     numberOfPeopleDiv.innerText = `${numberOfPeople}`
 
     // calculate the bill based on the new number of people
-    perPersonTotal = perPersonTotalDiv.innerText /numberOfPeople;
+    calculateBill();
+}
+
+const decreasePeople = () => {
+    numberOfPeople -= 1;
+    if(numberOfPeople <1){
+        return '';
+    }
+
+    numberOfPeopleDiv.innerText = `${numberOfPeople}`
+
+
+    calculateBill();
 
 }
