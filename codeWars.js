@@ -1,3 +1,21 @@
+// function randomFromArray(arr) {
+
+//     for (let i = 0; i < arr.length; i++) {
+//         x  = arr[Math.floor(Math.random()*4)];
+//     }
+//     return x;
+// } 
+
+// const animals = ['deer', 'bear', 'lion', 'sheep']
+// console.log(randomFromArray(animals));
+
+
+// given 2 integer , find a random number between those two;
+
+// function rand(a,b){
+//     return Math.floor(Math.random()*b + 1);
+// }
+// console.log(rand(1,2));
 // var min = function(list){
 //     x = Math.min(...list)
 //     console.log(x);
