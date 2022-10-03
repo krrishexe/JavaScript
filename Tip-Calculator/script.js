@@ -2,6 +2,7 @@ const billInput = document.getElementById('billTotalInput');
 const tipInput = document.getElementById('tipInput');
 const numberOfPeopleDiv = document.getElementById('numberOfPeople');
 const perPersonTotalDiv = document.getElementById('perPersonTotal');
+const people = document.getElementById('people');
 
 let numberOfPeople = Number(numberOfPeopleDiv.innerText);
 
@@ -44,11 +45,11 @@ const increasePeople = () => {
 }
 
 const decreasePeople = () => {
-    numberOfPeople -= 1;
-    if(numberOfPeople <1){
-        return '';
+    if(numberOfPeople <=1){
+        return ;
     }
-
+    numberOfPeople -= 1;
+    
     numberOfPeopleDiv.innerText = `${numberOfPeople}`
 
 
