@@ -7,6 +7,8 @@
 
 const arr = ['Rock', 'Paper', 'Scissors']
 
+const totalScores ={'playerScore': 0 , 'computerScore': 0}
+
 
 // function getplayerChoice(arr) {
 //     let x
@@ -96,8 +98,10 @@ function onClickRPS(playerChoice) {
     console.log({playerChoice});
     console.log({computerChoice});
     const score = getResult(playerChoice,computerChoice)
+    totalScores['playerScore']=+score;
     console.log(score);
-    showResult(getResult(playerChoice, computerChoice), playerChoice, computerChoice)
+    console.log(totalScores);
+    showResult(getResult(playerChoice, computerChoice), playerChoice, computerChoice)   
     
 }
 
