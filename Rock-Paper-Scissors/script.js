@@ -82,7 +82,12 @@ function showResult(score, playerChoice, computerChoice) {
         Result.innerText = 'You Loseeeeeee!'
     }
 
-    // let Player = document.getElementById("player-score");
+    let playerScore = document.getElementById('player-score');
+    let hands = document.getElementById('hands');
+    // playerScore.innerText= a;
+    hands.innerText = `${playerChoice} vs. ${computerChoice}`
+
+
 
     // Hint: on a score of -1
     // You should do result.innerText = 'You Lose!'
@@ -93,8 +98,9 @@ showResult(getResult(a, b), a, b);
 
 // ** Calculate who won and show it on the screen **
 function onClickRPS(playerChoice) {
-    
+    button.value = playerChoice;
 }
+
 
 
 function playGame() {
@@ -102,7 +108,7 @@ function playGame() {
     const Buttons = document.querySelectorAll('.rpsButton');
 
     Buttons.forEach(button => {
-        button.onclick = () => console.log(button.value);
+        button.onclick = () => onClickRPS(a);
     })
 }
 playGame();
