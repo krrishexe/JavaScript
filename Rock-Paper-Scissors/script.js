@@ -8,14 +8,14 @@
 const arr = ['Rock', 'Paper', 'Scissors']
 
 
-function getplayerChoice(arr) {
-    let x
-    for (let i = 0; i < arr.length; i++) {
-        x = Math.floor(Math.random() * 3);
-    }
-    return arr[x];
-}
-let a = getplayerChoice(arr);
+// function getplayerChoice(arr) {
+//     let x
+//     for (let i = 0; i < arr.length; i++) {
+//         x = Math.floor(Math.random() * 3);
+//     }
+//     return arr[x];
+// }
+// let a = getplayerChoice(arr);
 
 // a is PlayerChoice
 
@@ -27,8 +27,8 @@ function getComputerChoice(arr) {
     }
     return arr[x];
 }
+getComputerChoice(arr);
 
-let b = getComputerChoice(arr);
 
 // b is ComputerChoice
 
@@ -63,17 +63,17 @@ function getResult(playerChoice, computerChoice) {
     }
     return score;
 }
-console.log(getResult(a, b));
 
 
-// ** showResult updates the DOM to `You Win!` or `You Lose!` or `It's a Draw!` based on the score. Also shows Player Choice vs. Computer Choice**
+
+
 
 function showResult(score, playerChoice, computerChoice) {
 
     let Result = document.getElementById('result');
 
     if (score == 0) {
-        Result.innerText = 'Match Draw!'
+        Result.innerText = 'Match Drawwwww!'
     }
     else if (score == 1) {
         Result.innerText = 'You Winnnnnnn!'
@@ -84,42 +84,49 @@ function showResult(score, playerChoice, computerChoice) {
 
     let playerScore = document.getElementById('player-score');
     let hands = document.getElementById('hands');
-    // playerScore.innerText= a;
-    hands.innerText = `${playerChoice} vs. ${computerChoice}`
-
-
-
-    // Hint: on a score of -1
-    // You should do result.innerText = 'You Lose!'
-    // Don't forget to grab the div with the 'result' id!
+    playerScore.innerText = `${Number(playerScore.innerText) + score}`
+    hands.innerText = `The computer chose : ${computerChoice} \n${playerChoice} vs. ${computerChoice}`
 }
-showResult(getResult(a, b), a, b);
+// showResult(getResult(playerChoice, b), playerChoice, b);
 
 
 // ** Calculate who won and show it on the screen **
 function onClickRPS(playerChoice) {
-    button.value = playerChoice;
+    const computerChoice = getComputerChoice(arr);
+    console.log({playerChoice});
+    console.log({computerChoice});
+    const score = getResult(playerChoice,computerChoice)
+    console.log(score);
+    showResult(getResult(playerChoice, computerChoice), playerChoice, computerChoice)
 }
-
 
 
 function playGame() {
     // use querySelector to select all RPS Buttons
-    const Buttons = document.querySelectorAll('.rpsButton');
-
-    Buttons.forEach(button => {
-        button.onclick = () => onClickRPS(a);
+    const rpsButtons = document.querySelectorAll('.rpsButton');
+    rpsButtons.forEach(button => {
+        button.onclick = () => onClickRPS(button.value);
     })
 }
+
+
+// ** endGame function clears all the text on the DOM **
+function endGame() {
+    endGameButton = document.getElementById('endGameButton');
+    endGameButton.onclick = () => {
+        // playerChoice = '';
+        // computerChoice = ''
+        console.log("End game");
+        hands = '';
+        playerScore = '';
+
+    }
+}
+
+
+
 playGame();
 
-
-    // * Adds an on click event listener to each RPS button and every time you click it, it calls the onClickRPS function with the RPS button that was last clicked *
-
-    // 1. loop through the buttons using a forEach loop
-    // 2. Add a 'click' event listener to each button
-    // 3. Call the onClickRPS function every time someone clicks
-    // 4. Make sure to pass the currently selected rps button as an argument
 
 
 
