@@ -98,6 +98,7 @@ function onClickRPS(playerChoice) {
     const score = getResult(playerChoice,computerChoice)
     console.log(score);
     showResult(getResult(playerChoice, computerChoice), playerChoice, computerChoice)
+    
 }
 
 
@@ -109,18 +110,21 @@ function playGame() {
     })
 }
 
-
+let endGameButton = document.getElementById('endGameButton');
+endGameButton.onclick = endGame;
 // ** endGame function clears all the text on the DOM **
 function endGame() {
-    endGameButton = document.getElementById('endGameButton');
-    endGameButton.onclick = () => {
+    console.log(endGameButton);
+    let hands = document.getElementById('hands')
+    let result = document.getElementById('result')
+    let playerScore = document.getElementById('player-score')
         // playerChoice = '';
         // computerChoice = ''
-        console.log("End game");
-        hands = '';
-        playerScore = '';
+    console.log("End game");
+    hands.innerText = '';
+    result.innerText = '';
+    playerScore.innerText = '';
 
-    }
 }
 
 
