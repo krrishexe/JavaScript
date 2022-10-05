@@ -7,7 +7,7 @@
 
 const arr = ['Rock', 'Paper', 'Scissors']
 
-const totalScores ={'playerScore': 0 , 'computerScore': 0}
+let totalScores = 0
 
 
 // function getplayerChoice(arr) {
@@ -63,6 +63,7 @@ function getResult(playerChoice, computerChoice) {
     else if (playerChoice === 'Scissors' && computerChoice === 'Paper') {
         score = 1
     }
+    totalScores += score;
     return score;
 }
 
@@ -86,8 +87,8 @@ function showResult(score, playerChoice, computerChoice) {
 
     let playerScore = document.getElementById('player-score');
     let hands = document.getElementById('hands');
-    playerScore.innerText = `${Number(playerScore.innerText) + score}`
-    hands.innerText = `The computer chose : ${computerChoice} \n${playerChoice} vs. ${computerChoice}`
+    playerScore.innerText = `Player Score :   ${totalScores}`
+    hands.innerText = `The computer chose : ${computerChoice} \n\n${playerChoice} vs. ${computerChoice}`
 }
 // showResult(getResult(playerChoice, b), playerChoice, b);
 
@@ -97,11 +98,10 @@ function onClickRPS(playerChoice) {
     const computerChoice = getComputerChoice(arr);
     console.log({playerChoice});
     console.log({computerChoice});
-    const score = getResult(playerChoice,computerChoice)
-    totalScores['playerScore']=+score;
+    const score = getResult(playerChoice,computerChoice) 
     console.log(score);
-    console.log(totalScores);
-    showResult(getResult(playerChoice, computerChoice), playerChoice, computerChoice)   
+    console.log("Total :"+totalScores);
+    showResult(score, playerChoice, computerChoice)   
     
 }
 
