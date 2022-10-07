@@ -4,11 +4,11 @@ const BASE_URL = `https://superheroapi.com/api.php/${SUPERHERO_TOKEN}`
 const superButtonDiv = document.getElementById("superButton");
 const searchNewHeroDiv = document.getElementById("searchNewHero");
 const inputSuperHeroDiv = document.getElementById("inputSuperHero");
+const superButtonTextDiv = document.getElementById("superButtonText")
 
 const newRandom = (num) => {
         return Math.floor(Math.random() * num + 1);
 }
-
 
 const getSuperHero = (id) => {
 		var name = inputSuperHeroDiv.value;
@@ -18,7 +18,6 @@ const getSuperHero = (id) => {
         let url
 		let condition = (name.length == 0);
 		console.log(condition);
-		console.log(!condition);
 
         if (condition) {
                 url = `${BASE_URL}/${id}`
@@ -30,10 +29,11 @@ const getSuperHero = (id) => {
             .then(response => response.json())
             .then(json => {
                 console.log(json);
-				if (!condition) {
+				if (!condition){
 					json = json.results[0]
 				}
 				superButtonDiv.innerHTML = `<img src="${json.image.url}" height =200px width = 200px />`
+				superButtonTextDiv.innerText = `${json.name} , ${json.biography["full-name"]}`
             })
 
 
