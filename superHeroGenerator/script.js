@@ -32,8 +32,11 @@ const getSuperHero = (id) => {
 				if (!condition){
 					json = json.results[0]
 				}
+                const name  = `<h1>${json.name}</h1>`
+                const intelligence  = `<p>${json.powerstats.intelligence}</p>`
+                const strength  = `<p>${json.strength}</p>`
 				superButtonDiv.innerHTML = `<img src="${json.image.url}" height =200px width = 200px />`
-				superButtonTextDiv.innerText = `${json.name} , ${json.biography["full-name"]}`
+				superButtonTextDiv.innerText = `NickName :${name} , Name :${json.biography["full-name"]},Intelligence: ${intelligence}, Strength :${strength}`
             })
 
 
