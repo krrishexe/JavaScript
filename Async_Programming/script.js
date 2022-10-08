@@ -26,36 +26,76 @@
 // & if the condition is false or REJECTED ,we can pass a .catch() function to console.log our value.
 
 //.then()--> for resolved 
-//.catch()--> for rejected 
+//.catch()--> for rejected   & these both can only be used when we are using promises.
 
-const promise1 = new Promise((resolve,reject)=>{
-    setTimeout(()=>{
-        condition = false;
-        condition?resolve('Soup is Ready'):reject('No soup , Request rejected');
-    },2000) 
-});
-console.log(promise1
-    .then(value => console.log(value))
-    .catch(value => console.log(value))
-)
+// const promise1 = new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//         condition = [true,false][Math.floor(Math.random()*2)];
+//         condition?resolve('Soup is Ready'):reject('No soup , Request rejected');
+//     },2000) 
+// });
 
-console.log("fetch :",
-    fetch('https://dog.ceo/api/breeds/image/random') // we are fetching, that means it is a promise. 
-.then(response => response.json())              // response is also a promise because it is converting the response to a json file and it can take as much time asynchronously.
-.then(value => console.log(value))
-);
+// // console.log(promise1
+// //     .then(value => console.log(value))
+// //     .catch(value => console.log(value))
+// // )
 
-            // Async function is a function which tells us that , it will take some time to completely run, cz it is fetching some data from the api , it says dont wait for me(aage badh jaao) .
+// const getSoup = async () =>{
+//     const data= {rating :'0',
+//                 tip : '0',
+//                 pay :0 ,
+//                 review :0}
+    
+//     try {
+//     const soup = await promise1;
+//     console.log(soup);
+//     data.rating =5;
+//     data.tip=.2;
+//     data.pay=10;
+//     data.review =5;
+//     return data;
+//     } catch (error) {
+//     console.log(error);
+//     data.rating =1;
+//     data.tip=0;
+//     data.pay=0;
+//     data.review =1;
+//     return data;
+//     }
+// }
+// getSoup().then(value=>console.log(value));
 
-            //Rules for using Async / Await.
-            //1). you must create a function.
-            //2). you must use the keyword async.
-            //3).    
+// there are only two ways to extract the values out of a asynchronous function cz they are returning promises{} , 
+// first is by {
+    //console.log( await getSoup()) and then making an async function 
+//}
+
+//second is by {
+    //getSoup().then(value=>console.log(value)); // this second method is used more
+//}
+
+
+
+// console.log("fetch :",
+//     fetch('https://dog.ceo/api/breeds/image/random')       // we are fetching, that means it is a promise. 
+// .then(response => response.json())              // response is also a promise because it is converting the response to a json file and it can take as much time asynchronously.
+// .then(value => console.log(value))
+// );
+
+//             // Async function is a function which tells us that , it will take some time to completely run, cz it is fetching some data from the api , it says dont wait for me(aage badh jaao) .
+
+//             //Rules for using Async / Await.
+//             //1). you must create a function.
+//             //2). you must use the keyword async.  
         
-const getDog = async()=>{
-    const url = 'https://dog.ceo/api/breeds/image/random';
-    const response = await fetch(url)
-    const data = await response.json();
-    console.log(data);
-}
-getDog();
+// const getDog = async()=>{
+//     const url = 'https://dog.ceo/api/breeds/image/random';
+//     const response = await fetch(url)
+//     const data = await response.json();
+//     console.log(data);
+// }
+// getDog();
+
+const sum = async (a,b) => a+b
+    
+console.log(sum(1,5).then(value => console.log(value)));
