@@ -3,7 +3,7 @@
 // Async / Await .
 
 // suppose you go to a restraunt and order a dish .
-// meanwhile , you continue your conversation ith your friend .
+// meanwhile , you continue your conversation with your friend .
 // now , RESOLVED --> your waiter (API) bring your dish to you . 
 // now , REJECTED --> your waiter (API) tell you that dish is not available.
 
@@ -54,6 +54,8 @@ const getSoup = async () =>{
     data.pay=10;
     data.review =5;
     return data;
+
+    
     } catch (error) {
     console.log(error);
     data.rating =1;
@@ -84,10 +86,8 @@ console.log("fetch :",
 
             // Async function is a function which tells us that , it will take some time to completely run, cz it is fetching some data from the api , it says dont wait for me(aage badh jaao) .
 
-            //Rules for using Async / Await.
-            //1). you must create a function.
-            //2). you must use the keyword async.  
         
+
 const getDog = async()=>{
     const url = 'https://dog.ceo/api/breeds/image/random';
     const response = await fetch(url)
