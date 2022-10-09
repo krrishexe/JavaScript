@@ -35,12 +35,12 @@ getWeatherData = (city) => {
     };
 
     let API_KEY = "a8e71c9932b20c4ceb0aed183e6a83bb";
-    const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=imperial`;
+    const URL = `https://justcors.com/l_s8fob4lzf7i/https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=imperial`;
     //HINT: Use template literals to create a url with input and an API key
     //CODE GOES HERE 
     fetch(URL,options)
     .then(response=>response.json())
-    .then(data=>console.log(data.name))
+    .then(data=>console.log(data))
     .catch(error => console.log(error));
 }
 
