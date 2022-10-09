@@ -76,7 +76,9 @@ const showWeatherData = (data) => {
     const showTempDiv = document.getElementById('temp');
     const showMinTempDiv = document.getElementById('min-temp');
     const showMaxTempDiv = document.getElementById('max-temp');
+    const cityNameDiv = document.getElementById('city-name');
 
+    cityNameDiv.innerText = `${data.name} Temprature's like :`;
     weatherTypeDiv.innerText = data.weather[0].main
     showTempDiv.innerText = `${converter(data.main.temp).toFixed(2)}`
     showMinTempDiv.innerText = `${converter(data.main.temp_min).toFixed(2)}`            //.toFixed(2) keeps the float value to two decimal places only.
