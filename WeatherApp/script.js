@@ -1,8 +1,6 @@
 const searchButtonDiv = document.getElementById('searchButton');
-const weatherTypeDiv = document.getElementById('weather-type')
-const showTempDiv = document.getElementById('temp');
-const showMinTempDiv = document.getElementById('min-temp');
-const showMaxTempDiv = document.getElementById('max-temp');
+
+
 /**
  * Weather App
  * TODO: Complete getWeatherData() to return json response Promise
@@ -23,7 +21,7 @@ const showMaxTempDiv = document.getElementById('max-temp');
  * HINT: URL should look like this: 
  * https://api.openweathermap.org/data/2.5/weather?q=detroit&appid=a8e71c9932b20c4ceb0aed183e6a83bb&units=imperial
  */
-getWeatherData = (city) => {
+getWeatherData = async (city) => {
 
     const options = {
         method: 'GET',
@@ -38,21 +36,26 @@ getWeatherData = (city) => {
     const URL = `https://justcors.com/l_s8fob4lzf7i/https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=imperial`;
     //HINT: Use template literals to create a url with input and an API key
     //CODE GOES HERE 
-    fetch(URL,options)
+    return fetch(URL,options)
     .then(response=>response.json())
-    .then(data=>console.log(data))
+    .then(data=>{return data})
     .catch(error => console.log(error));
+
 }
+
 
 /**
  * Retrieve city input and get the weather data
  * HINT: Use the promise returned from getWeatherData()
  */
-const searchCity = () => {
+const searchCity = async () => {
     const cityInputDiv = document.getElementById('city-input');
     const city = cityInputDiv.value;
     console.log(city);
-    getWeatherData(city);
+    const data = await getWeatherData(city);   
+                                                        // Here we have to use async function because the getWeather function will take some time to fetch data , and before that the showWeather function is running 
+    showWeatherData(data);
+    
     // CODE GOES HERE
 }
 
@@ -60,11 +63,22 @@ const searchCity = () => {
  * Show the weather data in HTML
  * HINT: make sure to console log the weatherData to see how the data looks like
  */
+const converter = (far) =>{
+    var cel = (far - 32) * 5/9;
+    return cel;
+}
 const showWeatherData = (data) => {
     //CODE GOES HERE
-    weatherTypeDiv.innerText = data.weather[0].main
-    showTempDiv.innerText = `Temp : ${data.main.temp}`
-    showMinTempDiv.innerText = `Temp_min : ${data.main.temp_min}`
-    showMaxTempDiv.innerText = `Temp_max: ${data.main.temp_max}`
+    
+    
+    console.log(data);
+    const weatherTypeDiv = document.getElementById('weather-type')
+    const showTempDiv = document.getElementById('temp');
+    const showMinTempDiv = document.getElementById('min-temp');
+    const showMaxTempDiv = document.getElementById('max-temp');
 
+    weatherTypeDiv.innerText = data.weather[0].main
+    showTempDiv.innerText = `${converter(data.main.temp).toFixed(2)}`
+    showMinTempDiv.innerText = `${converter(data.main.temp_min).toFixed(2)}`            //.toFixed(2) keeps the float value to two decimal places only.
+    showMaxTempDiv.innerText = `${converter(data.main.temp_max).toFixed(2)}`
 }
