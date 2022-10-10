@@ -70,19 +70,19 @@
 
 
 
-class bankAccount{
-    constructor(balance){
+class bankAccount {
+    constructor(balance) {
         this.balance = balance;
     }
-    deposit(balance=100){
+    deposit(balance = 100) {
         this.balance += balance;
         console.log(`deposited an amount of ${this.balance}`);
     }
-    withDraw(balance=100){
-        if(balance>this.balance){
+    withDraw(balance = 100) {
+        if (balance > this.balance) {
             let x = console.log("you dont have Enough Money left!!!")
             return x
-        }else{
+        } else {
             this.balance -= balance;
             console.log(`WithDrawn an amount of ${balance} \namount left : ${this.balance}`);
         }
@@ -98,18 +98,25 @@ const depositButton = document.getElementById('deposit');
 const withdrawButton = document.getElementById('withdraw');
 const currentBalanceDiv = document.getElementById('currentBalance')
 
-// balance = inputValueDiv.value;
+let balance = inputValueDiv.value;
 
-depositButton.onclick =()=> {
+
+
+inputValueDiv.addEventListener('keypress', function (balance) {
+    if (event.keyCode === 13) {
+        krish.deposit(Number(inputValueDiv.value));
+        currentBalanceDiv.innerText = `${krish.balance}`
+        // your code to Run
+    }
+}
+
+
+,depositButton.onclick = () => {
     krish.deposit(Number(inputValueDiv.value));
     currentBalanceDiv.innerText = `${krish.balance}`
 }                                                       //.onclick hamesha anonymous function =()=> use me leta hai!!
 
-withdrawButton.onclick =()=> {
+,withdrawButton.onclick = () => {
     krish.withDraw(Number(inputValueDiv.value));
     currentBalanceDiv.innerText = `${krish.balance}`
-}
-
-
-
-
+})
