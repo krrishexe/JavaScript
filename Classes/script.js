@@ -106,6 +106,7 @@ inputValueDiv.addEventListener('keypress', function (balance) {
     if (event.keyCode === 13) {
         krish.deposit(Number(inputValueDiv.value));
         currentBalanceDiv.innerText = `${krish.balance}`
+        document.getElementById('jutsu').play();
         // your code to Run
     }
 }

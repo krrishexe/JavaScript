@@ -10,8 +10,8 @@
 //addEventListener()
 //DOM --> Document Object Model
 
-let playDiv = document.getElementById('play');
-console.log(playDiv.innerText);
+// let playDiv = document.getElementById('play');
+// console.log(playDiv.innerText);
 
 // playDiv.onclick =()=> {
 //     console.log('YO YO');
@@ -27,6 +27,29 @@ console.log(playDiv.innerText);
 
 // we can also add event listener to the document.
 
-document.addEventListener('keydown',function(){
-    console.log('ehyyyyy');
+            // KEY vs. keyCode
+
+// document.addEventListener('keydown',function(e){
+//     if(e.key == 'q'){
+//         console.log('You Pressed q');
+//     }else{
+//         console.log('not q');
+//     }
+// })
+// document.addEventListener('keydown',function(e){
+//     if(e.keyCode == 13 ){
+//         console.log('You Pressed Enter');
+//     }else{
+//         console.log('not Enter');
+//     }
+// })
+
+
+document.addEventListener('keydown',function(e){
+    if(e.keyCode == 13){
+        document.getElementById('jutsu').play()
+        console.log('pressed enter');
+    }else{
+        console.log('Not enter')
+    }
 })
