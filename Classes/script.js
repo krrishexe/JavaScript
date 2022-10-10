@@ -45,19 +45,6 @@ for(let i = 0;i<nums.length;i++){
     ferrari.drive(20);
 }
 
-// ferrari.stop()
-// console.log(ferrari.currentSpeed);
-// console.log(ferrari2.name);
-// console.log(ferrari2.model);
-// console.log(ferrari2.price);
-
-
-
-
-
-
-
-
 // class Person {
 //     constructor(firstName,lastName){
 //         this.firstName =firstName;
@@ -69,3 +56,10 @@ for(let i = 0;i<nums.length;i++){
 // }
 // x = new Person('Krish','Patel');
 // console.log(x.fullName());
+
+
+Array.prototype.myPush = function (){
+    return this.length;
+}
+const numbers1 = [1,2,3,4,5,6];
+console.log(numbers1.myPush());
