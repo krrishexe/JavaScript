@@ -51,8 +51,6 @@ const decreasePeople = () => {
     numberOfPeople -= 1;
     
     numberOfPeopleDiv.innerText = `${numberOfPeople}`
-
-
     calculateBill();
 
 }
