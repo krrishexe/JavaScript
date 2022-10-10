@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    margin: auto 300px;
+    display: flex;
+    justify-content: space-around;
+    align-items:center;
+    flex-direction: column;
+    flex-wrap: no-wrap;
+    background-color: rgb(233, 163, 137);
+    opacity: 0.6;
+    height: 100vh;
+}
+.box{
+    background-color: rgb(218, 176, 239);
+    opacity: 0.4;
+}
+.floatleft{
+    margin: 20px 5px;
+    float: right;
+}

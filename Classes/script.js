@@ -58,8 +58,38 @@ for(let i = 0;i<nums.length;i++){
 // console.log(x.fullName());
 
 
-Array.prototype.myPush = function (){
-    return this.length;
+// Array.prototype.myPush = function (item){
+//     this[this.length] = item;
+//     return this;
+// }
+// const numbers1 = [1,2,3,4,5,6];
+// console.log(numbers1.myPush('str'));
+
+
+// console.log(object.keys(person));         // Keys are basically the properties of an object.
+
+class bankAccount{
+    constructor(balance){
+        this.balance = balance;
+    }
+    deposit(balance){
+        this.balance += balance;
+        console.log(`deposited an amount of ${this.balance}`);
+    }
+    withDraw(balance){
+        if(balance>this.balance){
+            let x = console.log("you dont have Enough Money left!!!")
+            return x;
+        }else{
+            this.balance -= balance;
+            console.log(`WithDrawn an amount of ${balance} \namount left : ${this.balance}`);
+        }
+    }
 }
-const numbers1 = [1,2,3,4,5,6];
-console.log(numbers1.myPush());
+krish = new bankAccount(0);
+console.log(krish.deposit(1000));
+console.log(krish.deposit(1000));
+console.log(krish.deposit(1000));
+console.log(krish.deposit(2000));
+console.log(krish.withDraw(1000));
+
