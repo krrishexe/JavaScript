@@ -98,13 +98,17 @@ const depositButton = document.getElementById('deposit');
 const withdrawButton = document.getElementById('withdraw');
 const currentBalanceDiv = document.getElementById('currentBalance')
 
-balance = inputValueDiv.value;
+// balance = inputValueDiv.value;
+
 depositButton.onclick =()=> {
-    krish.deposit(inputValueDiv.vlaue)
-    console.log(krish.deposit()); 
+    krish.deposit(Number(inputValueDiv.value));
+    currentBalanceDiv.innerText = `${krish.balance}`
 }                                                       //.onclick hamesha anonymous function =()=> use me leta hai!!
 
-withdrawButton.onclick =()=> console.log('hiii');
+withdrawButton.onclick =()=> {
+    krish.withDraw(Number(inputValueDiv.value));
+    currentBalanceDiv.innerText = `${krish.balance}`
+}
 
 
 
