@@ -36,7 +36,7 @@
 //         console.log('not q');
 //     }
 // })
-// document.addEventListener('keydown',function(e){
+// document.addEventListener('keypress',function(e){
 //     if(e.keyCode == 13 ){
 //         console.log('You Pressed Enter');
 //     }else{

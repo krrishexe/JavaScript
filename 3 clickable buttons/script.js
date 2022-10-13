@@ -36,11 +36,11 @@ const squares = document.querySelectorAll('.colorSquare');
 // forEach loop 
 
 
-const timesClicked ={'red' : 0,'green':0,'yellow':0,'blue':0}
+const timesClicked ={'red' : 0,'green':0,'yellow':0,'blue':0}                 // created object
 squares.forEach(square => {
     // square.onclick =()=> console.log(square.value) --> it will print the color of the square
     square.onclick =()=> {
-        timesClicked[square.value] += 1;
+        timesClicked[square.value] += 1;                // used Key Value pair here to access the objects.
         square.innerText = timesClicked[square.value]; // --> and it will print the number of times the button is clicked.
     }
 })

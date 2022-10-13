@@ -115,7 +115,7 @@ function playGame() {
 }
 
 let endGameButton = document.getElementById('endGameButton');
-endGameButton.onclick = endGame;
+endGameButton.onclick = () => endGame();
 // ** endGame function clears all the text on the DOM **
 function endGame() {
     console.log(endGameButton);

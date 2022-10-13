@@ -1,8 +1,8 @@
 
 // **** Kisi BHi Class ke function ko method Kehte hai. ****
 // so, whenever methods are involved , there must be classes.
-//console.log()  --=> its a method.
-//drive();     --=> its a function.
+//console.log()  --=> .log() is a method.
+//drive();     --=> drive() is a function.
 
 
 // class car{
@@ -56,7 +56,7 @@
 // console.log(x.fullName());
 
 
-// Array.prototype.myPush = function (item){
+// Array.prototype.myPush = function (item){                // creating our own mypush function()
 //     this[this.length] = item;
 //     return this;
 // }
@@ -72,11 +72,11 @@
 
 class bankAccount {
     constructor(balance) {
-        this.balance = balance;
+        this.balance = balance;                 // this.balance is the current balance
     }
     deposit(balance = 100) {
         this.balance += balance;
-        console.log(`deposited an amount of ${this.balance}`);
+        console.log(`deposited an amount of ${this.balance}`);    
     }
     withDraw(balance = 100) {
         if (balance > this.balance) {
