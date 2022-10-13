@@ -44,8 +44,18 @@ let p2HealthDiv = document.getElementById('p2Health')
 // ** Check if either players health is  0 and if it is, then update isOver to true **
 const updateGame = (p1, p2, gameState) => {
     // Update the DOM with the names and the latest health of players
-
+    // player1 == p1 and player2 == p2
+    p1NameDiv.innerText = p1.name
+    p1HealthDiv.innerText = p1.health
+    p2NameDiv.innerText = p2.name
+    p2HealthDiv.innerText = p2.health
     // Condition IF either player health is <= 0 then set isOver to true and declareWinner
+    if(player1.health<= 0 || player2.health<= 0 ){
+        game.isOver == true;
+        gameState = game.isOver;
+    }
+    resultDiv.innerText = game.declareWinner(game.isOver,p1,p2);
+    return gameState
 
 }
 
@@ -62,27 +72,26 @@ class Player {
     }
     // ** Attack an enemy with a random number from 0 to YOUR attackDmg bonus **
     strike(player, enemy, attackDmg) {
-
         // Get random number between 1 - 10 and that is damageAmount
-
+        let attackDamage = Math.floor(Math.random()*attackDmg);
         // Subtract the enemy health with the damageAmount
-
+        enemy.health -= attackDamage;
         //  Update the game and DOM with updateGame()
-
+        updateGame(player,enemy,game.isOver)
         //  Return a message of 'player name attacks enemy name for damageAmount'
-
+        return `${player.name} attacks ${enemy.name} for ${attackDamage} damage!`
     }
     // ** Heal the player for random number from  1 to 5 **
     heal(player) {
 
         // Get random number between 1 - 5 and store that in hpAmount
-
+        let hpAmount = Math.floor(Math.random()*5);
         // Add hpAmount to players health
-
+        player.health += hpAmount;
         //  Update the game and DOM with updateGame()
-
+        updateGame(player1,player2,game.isOver);
         //  Return a message of 'player name heals for hpAmount HP'
-
+        return `${player.name} heals for ${hpAmount}HP`
     }
 }
 
@@ -98,14 +107,20 @@ class Game {
     declareWinner(isOver, p1, p2) {
 
         // Create a message variable that will hold a message based on the condition
-
+        let message;
         // If isOver is true AND p1 health is <= 0 then update message variable  to 'p1 WINS!'
-
+        if(isOver == true && p1.health <=0){
+            message = `${p2.name} WINS !`
+        }
         // Else if isOver is true AND p2 health is <= 0 then update message variable  to 'p2 WINS!'
+        else if(isOver == true && p2.health <=0){
+            message = `${p1.name} WINS !`
+        }
         // Play victory sound
-
+        document.getElementById('victory').play();
+        
         // Return message variable 
-
+        return message;
     }
 
     // ** Reset the players health back to it's original state and isOver to FALSE **
@@ -129,13 +144,15 @@ class Game {
 }
 
 // ** Create 2 players using the player class **
-
+let player1 = new Player('Krish','100',10)
+let player2 = new Player('Ankit','100',10)
 
 // ** Save original Player Data into a variable in order to reset **
-let p1;
-let p2;
+let p1 = player1;
+let p2 = player2;
 
 // ** Create the game object from the Game class **
+let game = new Game()
 
 // ** Intialize the game by calling updateGame() **
 
@@ -152,17 +169,21 @@ let gameState;
 // ** Player 1 Controls **
 document.addEventListener('keydown', function (e) {
     // if you press Q AND the enemy health is greater than 0 AND isOver is still false then strike()
-
+    if(key== 'q' && p2.health>0 && isOver == false){
+        p1.strike();
+    }
     // After striking then play attack sound
-
+    document.getElementById("p1attack").play()
 });
 
 document.addEventListener('keydown', function (e) {
 
-    // if you press a AND the player health is greater than 0 AND isOver is still false then strike()
-
+    // if you press 'a' AND the player health is greater than 0 AND isOver is still false then strike()
+    if(key == 'a' && p1.health >0 && isOver == flase){
+        p1.heal();
+    }
     // After healing then play heal sound
-
+    
 });
 
 // ** Player 2 Controls **
@@ -181,6 +202,5 @@ document.addEventListener('keydown', function (e) {
 
 });
 
-
-
-
+console.log(p1.strike(p1,p2,p1.attackDmg));
+console.log(p2.heal(p2));
